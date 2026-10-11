@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand accent: the tutor is a slime, so the accent is slime green. */
+  --color-slime-50: #effdf3;
+  --color-slime-100: #d7f9e1;
+  --color-slime-200: #b6f5c4;
+  --color-slime-300: #84e9a0;
+  --color-slime-400: #4fd27e;
+  --color-slime-500: #2fbf68;
+  --color-slime-600: #22a456;
+  --color-slime-700: #1b8346;
+  --color-slime-800: #19673b;
+  --color-slime-900: #155433;
+  --color-slime-950: #0a2e1b;
+
+  /* Stream-overlay surfaces (near-black, faintly green). */
+  --color-stage-950: #0c120f;
+  --color-stage-900: #121a16;
+  --color-stage-800: #1a2520;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #f7f8f7;
+  font-family: var(--font-sans);
+  overscroll-behavior: none;
+}
+
+@keyframes focus-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Part of an equation the tutor is talking about (MathShape + \htmlClass). */
+.mt-hl {
+  border-radius: 6px;
+  background: rgba(79, 210, 126, 0.3);
+  box-shadow: 0 0 0 4px rgba(79, 210, 126, 0.3);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .mt-hl {
+    animation: mt-hl-pulse 1.1s ease-in-out 2;
+  }
+}
+@keyframes mt-hl-pulse {
+  50% {
+    box-shadow: 0 0 0 8px rgba(79, 210, 126, 0.15);
+  }
+}
