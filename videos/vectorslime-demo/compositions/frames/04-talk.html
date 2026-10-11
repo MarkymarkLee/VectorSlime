@@ -1,0 +1,47 @@
+<template id="04-talk-template">
+<div data-hf-id="hf-n10o" id="root" data-composition-id="04-talk" data-width="1920" data-height="1080" data-start="0" data-duration="7.5">
+  <style>
+    @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: block; }
+    @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: block; }
+    #root { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; container-type: size; }
+    .f04-talk-ground { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #12151C; }
+    .f04-talk-frame { position: absolute; left: 250px; top: 94px; width: 1420px; height: 804px; box-sizing: border-box; border: 1px solid #262A33; border-radius: 12px; background: #1A1E27; }
+    .f04-talk-band { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+    .f04-talk-label { position: absolute; left: 256px; top: 28px; height: 56px; display: flex; align-items: center; font-family: "Geist", sans-serif; font-weight: 500; font-size: 18px; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA0AA; white-space: nowrap; will-change: transform, opacity; }
+    .f04-talk-chip { position: absolute; left: 256px; top: 36px; width: 172px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 999px; background: #4FD27E; color: #12151C; font-family: "Geist", sans-serif; font-weight: 600; font-size: 19px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; transform-origin: 0% 50%; will-change: transform, opacity; }
+  </style>
+
+  <div data-hf-id="hf-bls0" class="clip f04-talk-ground" data-start="0" data-duration="7.5" data-track-index="1"></div>
+  <div data-hf-id="hf-pur2" class="clip f04-talk-frame" id="04-talk-frame" data-start="0" data-duration="7.5" data-track-index="2"></div>
+
+  <!-- approved frame video hoisted by assemble-index -->
+
+  <div data-hf-id="hf-1gh2" class="clip f04-talk-band" data-start="0" data-duration="7.5" data-track-index="3">
+    <div data-hf-id="hf-ktm6" class="f04-talk-label" id="04-talk-label">live session · real app</div>
+    <div data-hf-id="hf-o5rs" class="f04-talk-chip" id="04-talk-chip">01 · talk</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var q = function (id) { return document.getElementById(id); };
+      var label = q("04-talk-label");
+      var chip = q("04-talk-chip");
+      var tl = gsap.timeline({ paused: true });
+
+      // Scene 1 (0.0–2.6s): top-band label fades up on "You talk to me out loud".
+      tl.fromTo(label, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.3);
+
+      // Scene 2 (2.6–3.4s): chip spring-pops in at band left; label slides right to make room.
+      tl.fromTo(label, { x: 0 }, { x: 196, duration: 0.55, ease: "power3.out", immediateRender: false }, 2.6);
+      tl.fromTo(chip, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "power3.out" }, 2.68);
+
+      // Scene 3 (3.4–7.0s): held read — baked punch-in plays; frame layer stays still.
+      tl.set({}, {}, 7);
+
+      window.__timelines["04-talk"] = tl;
+    })();
+  </script>
+</div>
+</template>

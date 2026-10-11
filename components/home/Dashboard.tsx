@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowCounterClockwise, ArrowRight, ChatCircleDots, FilePdf, GearSix, GraduationCap } from "@phosphor-icons/react";
+import SlimeMark from "@/components/common/SlimeMark";
 import Slime from "@/components/tutor/Slime";
 import { COURSES } from "@/lib/courses";
 import type { Course } from "@/lib/courses/types";
@@ -56,7 +57,10 @@ export default function Dashboard() {
 
           <div className="relative mx-auto max-w-[1180px] px-5 pb-16 md:px-10">
             <header className="flex h-16 items-center justify-between">
-              <span className="font-display text-lg font-bold tracking-tight">Mathtwitch</span>
+              <span className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
+                <SlimeMark size={30} />
+                VectorSlime
+              </span>
               <button
                 onClick={() => set({ settingsOpen: true })}
                 title="Model and voice settings"

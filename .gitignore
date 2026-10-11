@@ -149,3 +149,13 @@ vite.config.ts.timestamp-*
 .turbo
 !.env.example
 .next-build/
+
+# HyperFrames demo video (videos/*)
+# raw session recording: ~20k screencast frames + full mp4 (1.7 GB); the cut clips live in assets/video
+videos/*/capture/session/
+videos/*/renders/
+videos/*/snapshots/
+videos/*/.thumbnails/
+videos/*/.waveform-cache/
+videos/*/assets/bgm/*.log
+videos/*/node_modules/

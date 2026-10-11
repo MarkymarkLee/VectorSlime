@@ -1,0 +1,149 @@
+<template id="02-wall-template">
+<style>
+  @font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+    font-weight: 200 800;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Geist";
+    src: url("assets/fonts/Geist-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: block;
+  }
+  #root {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+  }
+  .clip { position: absolute; inset: 0; }
+  #wall02-ground { background: #12151C; }
+  #wall02-wallwrap { overflow: hidden; }
+  .wall02-wall {
+    position: absolute;
+    left: 115px;
+    right: 115px;
+    top: 0;
+    font-family: "Geist", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #5A606B;
+    text-align: left;
+    will-change: transform;
+  }
+  .wall02-wall p { margin: 0 0 16px 0; }
+  #wall02-back {
+    left: 175px;
+    right: 55px;
+    top: -60px;
+    filter: blur(6px);
+    opacity: 0.35;
+  }
+  .wall02-line {
+    position: absolute;
+    left: 115px;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    font-size: 144px;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    white-space: nowrap;
+    will-change: transform, opacity, filter;
+  }
+  #wall02-l1 { top: 214px; color: #F4F1EA; }
+  #wall02-l2 { top: 610px; color: #4FD27E; }
+  #wall02-rule {
+    position: absolute;
+    left: 119px;
+    top: 578px;
+    width: 36px;
+    height: 2px;
+    background: #4FD27E;
+  }
+</style>
+
+<div data-hf-id="hf-fxde" id="root" data-composition-id="02-wall" data-start="0" data-duration="5.9" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-tg20" id="wall02-ground" class="clip" data-start="0" data-duration="5.9" data-track-index="0"></div>
+
+  <div data-hf-id="hf-dfta" id="wall02-wallwrap" class="clip" data-start="0" data-duration="5.9" data-track-index="1">
+    <div data-hf-id="hf-u5tc" id="wall02-back" class="wall02-wall" aria-hidden="true"></div>
+    <div data-hf-id="hf-h2q2" id="wall02-front" class="wall02-wall" aria-hidden="true"></div>
+  </div>
+
+  <div data-hf-id="hf-78cb" id="wall02-type" class="clip" data-start="0" data-duration="5.9" data-track-index="2">
+    <div data-hf-id="hf-ljhy" id="wall02-l1" class="wall02-line">answers,<br data-hf-id="hf-x5px">handed over.</div>
+    <div data-hf-id="hf-23pq" id="wall02-rule"></div>
+    <div data-hf-id="hf-jgmt" id="wall02-l2" class="wall02-line">no reasoning<br data-hf-id="hf-rsrt">built.</div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+  (function () {
+    var FILLER = [
+      "To find the eigenvectors of a matrix A, first compute the characteristic polynomial det(A − λI) = 0 and solve for each eigenvalue λ.",
+      "For each λ, substitute back into (A − λI)v = 0 and row-reduce the augmented matrix to reduced row echelon form.",
+      "The free variables parameterize the null space, which is the eigenspace associated with λ.",
+      "Note that eigenvectors are only defined up to a scalar multiple, so any nonzero multiple is also an eigenvector.",
+      "If the algebraic multiplicity exceeds the geometric multiplicity the matrix is defective and cannot be diagonalized, in which case generalized eigenvectors must be computed from (A − λI)^k v = 0.",
+      "In summary, the procedure consists of the following eleven steps, each of which should be verified carefully before proceeding to the next…"
+    ];
+    function fill(id, offset, paras) {
+      var el = document.getElementById(id);
+      var html = "";
+      for (var p = 0; p < paras; p++) {
+        var s = "";
+        for (var k = 0; k < FILLER.length; k++) {
+          s += FILLER[(k + p + offset) % FILLER.length] + " ";
+        }
+        html += "<p>" + s + "</p>";
+      }
+      el.innerHTML = html;
+    }
+    fill("wall02-front", 0, 14);
+    fill("wall02-back", 3, 14);
+
+    var DUR = 5.5;
+    // VO cues (frame-local): "A wall" 0.11 · "answer" 1.49 · "never build" 3.36
+    var BEATS = [1.45, 3.3];
+    var tl = gsap.timeline({ paused: true });
+
+    // Scene 1 — handoff_in: wall arrives at ~600px/s upward; decelerate to rest over 0.6s.
+    // power1.out over 0.6s with 180px travel => initial velocity 2*180/0.6 = 600px/s.
+    tl.fromTo("#wall02-front", { y: 0 }, { y: -180, duration: 0.6, ease: "power1.out" }, 0);
+    tl.fromTo("#wall02-back", { y: 0 }, { y: -110, duration: 0.6, ease: "power1.out" }, 0);
+    // wall dims to ~18% — it becomes the background layer
+    tl.fromTo("#wall02-front", { opacity: 1 }, { opacity: 0.18, duration: 0.8, ease: "power2.inOut" }, 0.05);
+    tl.fromTo("#wall02-back", { opacity: 0.35 }, { opacity: 0.08, duration: 0.8, ease: "power2.inOut" }, 0.05);
+    // slow push underneath the whole shot (no exit; finite)
+    tl.fromTo("#wall02-wallwrap", { scale: 1 }, { scale: 1.03, duration: DUR, ease: "none", transformOrigin: "50% 40%" }, 0);
+
+    // Scene 2 — "answers, handed over." scale+blur slam
+    tl.fromTo("#wall02-l1",
+      { scale: 1.45, opacity: 0, filter: "blur(18px)", transformOrigin: "0% 50%" },
+      { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power4.out" },
+      BEATS[0]);
+    // impact jolt on the wall as the line hits
+    tl.fromTo("#wall02-front", { x: 0 }, { x: -6, duration: 0.06, ease: "none" }, BEATS[0] + 0.12);
+    tl.to("#wall02-front", { x: 0, duration: 0.3, ease: "power2.out" }, BEATS[0] + 0.18);
+
+    // Scene 3 — rule stub draws, then "no reasoning built." side-snap in slime green
+    tl.fromTo("#wall02-rule", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.3, ease: "expo.out" }, BEATS[1] - 0.15);
+    tl.fromTo("#wall02-l2",
+      { x: -360, opacity: 0, filter: "blur(10px)" },
+      { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" },
+      BEATS[1]);
+    // first line drops to cream-muted
+    tl.fromTo("#wall02-l1", { color: "#F4F1EA" }, { color: "#9AA0AA", duration: 0.4, ease: "power2.out" }, BEATS[1] + 0.1);
+    // held read: quiet settle on the green line
+    tl.fromTo("#wall02-l2", { scale: 1, transformOrigin: "0% 50%" }, { scale: 1.015, duration: DUR - (BEATS[1] + 0.5), ease: "sine.out" }, BEATS[1] + 0.5);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["02-wall"] = tl;
+  })();
+</script>
+</template>

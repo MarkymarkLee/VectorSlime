@@ -6,8 +6,8 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "sw
 const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Mathtwitch",
-  description: "Live AI math tutoring on an infinite whiteboard",
+  title: "VectorSlime",
+  description: "A live, voice-first AI tutor that shares a whiteboard with you",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

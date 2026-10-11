@@ -1,0 +1,31 @@
+[button] Move focus to canvas
+[span] 100%
+[button] Get a license for production
+[h2] Today's plan
+[span] Upload your homework
+[span] Drop a PDF or a photo here. I'll find the concepts you need and plan today's session.
+[h3] Or follow a course
+[span] Linear Algebra
+[span] From arrows to eigenvectors, one picture at a time. 12 lessons.
+[div] Professor Pi
+[span] LIVE
+[div] Professor Pi
+[span] VectorSlime
+[span] claude-haiku
+[h1] What are we learning
+[span] today?
+[p] Pick a course, bring your homework, or just start talking. Every session starts on a fresh board.
+[h2] Courses
+[h3] Linear Algebra
+[p] From arrows to eigenvectors, one picture at a time. 12 lessons.
+[span] Starts with
+[span] : lesson
+[p] Vectors: arrows and lists
+[button] Start course
+[h2] Other sessions
+[h3] Homework help
+[p] Drop a PDF or a photo here. Your tutor reads it, finds the concepts you need and plans the session.
+[button] Choose homework
+[h3] Open session
+[p] No plan. Ask anything, draw a problem, and work through it together.
+[button] Go live

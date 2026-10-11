@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VectorSlime banner</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url(../../videos/vectorslime-demo/assets/fonts/BricolageGrotesque-Variable.woff2) format("woff2");font-weight:200 800}
+@font-face{font-family:"Geist";src:url(../../videos/vectorslime-demo/assets/fonts/Geist-Variable.woff2) format("woff2");font-weight:100 900}
+:root{--ink:#12151C;--ink2:#1A1E27;--cream:#F4F1EA;--muted:#9AA0AA;--line:#262A33;--slime:#4FD27E;--slime-lt:#B6F5C4;--gold:#F4C74F}
+*{box-sizing:border-box;margin:0}
+html,body{width:1600px;height:640px;overflow:hidden}
+body{background:var(--ink);color:var(--cream);font-family:Geist,system-ui,sans-serif;position:relative}
+/* faint dot grid, like the app's board */
+body:before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(220,255,230,.07) 1.2px,transparent 1.6px) 0 0/26px 26px;
+  mask-image:linear-gradient(90deg,transparent 0,#000 55%,#000 100%)}
+.copy{position:absolute;left:96px;top:118px;width:760px}
+.kicker{display:flex;align-items:center;gap:14px;font-size:20px;font-weight:600;letter-spacing:.16em;color:var(--slime)}
+.kicker svg{width:44px;height:44px}
+h1{font-family:"Bricolage Grotesque";font-weight:700;font-size:78px;line-height:.98;letter-spacing:-.035em;margin-top:26px}
+h1 em{font-style:normal;color:var(--slime)}
+p{margin-top:26px;font-size:25px;line-height:1.45;color:var(--muted);max-width:640px}
+.chips{display:flex;gap:10px;margin-top:30px}
+.chip{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:9px 16px;border-radius:999px;border:1px solid var(--line);color:var(--cream)}
+.chip b{color:var(--slime);font-weight:600;margin-right:8px}
+/* the shared board */
+.board{position:absolute;left:930px;top:70px;width:600px;height:420px;border-radius:22px;background:#F7F8F7;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.06);overflow:hidden}
+.board:before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(20,40,30,.11) 1px,transparent 1.3px) 0 0/22px 22px}
+.eq{position:absolute;left:34px;top:40px;font:italic 30px "Times New Roman",serif;color:#1b3a2a;display:flex;align-items:center;gap:10px}
+.mat{display:inline-grid;grid-template-columns:auto auto;gap:2px 22px;font-style:normal;padding:2px 12px;border-left:2px solid #1b3a2a;border-right:2px solid #1b3a2a;border-radius:12px;font-size:27px}
+.widget{position:absolute;left:220px;top:28px;width:350px;height:280px;background:#fff;border-radius:12px;box-shadow:0 10px 30px -12px rgba(20,60,38,.35),0 0 0 1px rgba(20,40,30,.06);overflow:hidden}
+.wh{height:40px;background:#E7F9EC;display:flex;align-items:center;gap:8px;padding:0 14px;font-size:15px;font-weight:600;color:#1b8346}
+.wh i{width:8px;height:8px;border-radius:50%;background:#22a456}
+.sl{margin:12px 16px 0;font-size:13px;color:#333}
+.track{margin:8px 16px 0;height:6px;border-radius:3px;background:#e4e6e8;position:relative}
+.track:before{content:"";position:absolute;left:0;top:0;bottom:0;width:26%;border-radius:3px;background:#3b82f6}
+.track:after{content:"";position:absolute;left:24%;top:-5px;width:16px;height:16px;border-radius:50%;background:#3b82f6}
+.plot{position:absolute;left:16px;right:16px;top:100px;bottom:40px}
+.tag{position:absolute;left:16px;top:104px;font-size:15px;font-weight:700;color:#22a456}
+.note{position:absolute;left:30px;top:178px;width:160px;height:118px;background:#FFF3A8;border-radius:6px;transform:rotate(-4deg);
+  box-shadow:0 8px 18px -10px rgba(0,0,0,.35);padding:16px;font:600 19px/1.25 "Bricolage Grotesque";color:#12151C}
+.note small{display:block;margin-top:8px;font:400 15px Geist;color:#5a5a40}
+.pointer{position:absolute;left:44px;top:122px;display:flex;align-items:center;gap:6px}
+.pointer span{background:#12151C;color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
+/* stream cam */
+.cam{position:absolute;left:1220px;top:300px;width:320px;height:250px;border-radius:20px;background:linear-gradient(#16261d,#0e1813);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.9),0 0 0 2px var(--slime)}
+.live{position:absolute;left:16px;top:16px;background:#e5252a;color:#fff;font-size:12px;font-weight:700;padding:4px 9px;border-radius:6px;letter-spacing:.06em}
+.turn{position:absolute;left:78px;top:16px;background:rgba(255,255,255,.12);color:#fff;font-size:12px;padding:4px 9px;border-radius:6px}
+.cam svg{position:absolute;left:85px;top:50px;width:150px;height:147px}
+.floor{position:absolute;left:0;right:0;bottom:0;height:46px;border-radius:0 0 20px 20px;background:rgba(79,210,126,.08)}
+.name{position:absolute;left:16px;bottom:14px;font-size:13px;font-weight:700;color:#fff;background:rgba(0,0,0,.45);padding:4px 10px;border-radius:6px}
+.bubble{position:absolute;left:944px;top:516px;width:256px;background:#fff;color:#12151C;border-radius:14px;padding:12px 16px;box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
+.bubble b{display:block;font-size:11px;letter-spacing:.12em;color:#1b8346;margin-bottom:4px}
+.bubble{font-size:16px;line-height:1.35}
+.bubble:after{content:"";position:absolute;right:-8px;top:34px;border:8px solid transparent;border-left-color:#fff;border-right:0}
+</style>
+</head>
+<body>
+<div class="copy">
+  <div class="kicker">
+    <svg viewBox="16 20 96 94"><defs><linearGradient id="k" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6f5c4"/><stop offset=".45" stop-color="#4fd27e"/><stop offset="1" stop-color="#22a456"/></linearGradient></defs><path d="M20 104 C20 72 38 52 64 52 C90 52 108 72 108 104 C108 110 100 111 64 111 C28 111 20 110 20 104 Z" fill="url(#k)"/><ellipse cx="52" cy="82" rx="5" ry="6.5" fill="#0f2418"/><ellipse cx="76" cy="82" rx="5" ry="6.5" fill="#0f2418"/><path d="M57 93 Q64 99 71 93" fill="none" stroke="#5b1f2a" stroke-width="2.6" stroke-linecap="round"/><path d="M45 40 L83 40 L81 55 Q64 59 47 55 Z" fill="#1f2228"/><path d="M26 36 L64 25 L102 36 L64 47 Z" fill="#363b46"/><path d="M64 36 L98 37 Q101 44 100 52" fill="none" stroke="#f4c74f" stroke-width="2.2"/><rect x="96.5" y="50" width="7" height="12" rx="2.4" fill="#f4c74f"/></svg>
+    VECTORSLIME
+  </div>
+  <h1>Don’t ask AI for answers.<br><em>Think with it.</em></h1>
+  <p>A live, voice-first AI tutor that shares an infinite whiteboard with you, and builds interactive tools on it while it teaches.</p>
+  <div class="chips"><span class="chip"><b>01</b>Talk</span><span class="chip"><b>02</b>Share a board</span><span class="chip"><b>03</b>Build live tools</span></div>
+</div>
+
+<div class="board">
+  <div class="eq">A =<span class="mat"><span>2</span><span>1</span><span>1</span><span>2</span></span></div>
+  <div class="widget">
+    <div class="wh"><i></i>Do the arrows stay on their line?</div>
+    <div class="sl">Input angle: <b>45°</b></div>
+    <div class="track"></div>
+    <div class="tag">Same line!</div>
+    <svg class="plot" viewBox="0 0 318 140" preserveAspectRatio="none">
+      <line x1="159" y1="0" x2="159" y2="140" stroke="#e6e8ea"/><line x1="0" y1="110" x2="318" y2="110" stroke="#e6e8ea"/>
+      <line x1="159" y1="110" x2="250" y2="14" stroke="#e5252a" stroke-width="3"/><path d="M250 14 l-12 3 7 7z" fill="#e5252a"/>
+      <line x1="159" y1="110" x2="190" y2="78" stroke="#3b82f6" stroke-width="3"/><path d="M190 78 l-11 3 7 7z" fill="#3b82f6"/>
+    </svg>
+  </div>
+  <div class="note">eigenvector = stays on its own line<small>my guess ✏️</small></div>
+  <div class="pointer"><span>drag the slider</span><svg width="22" height="22" viewBox="0 0 24 24"><path d="M2 12h14l-4-4m4 4-4 4" stroke="#22a456" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+</div>
+
+<div class="bubble"><b>PROFESSOR PI</b>Yes! It keeps its direction. What happens to its length?</div>
+
+<div class="cam">
+  <span class="live">● LIVE</span><span class="turn">Your turn</span>
+  <div class="floor"></div>
+  <svg viewBox="16 20 96 94"><defs><linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6f5c4"/><stop offset=".45" stop-color="#4fd27e"/><stop offset="1" stop-color="#22a456"/></linearGradient></defs><path d="M20 104 C20 72 38 52 64 52 C90 52 108 72 108 104 C108 110 100 111 64 111 C28 111 20 110 20 104 Z" fill="url(#b)" stroke="rgba(14,84,44,.55)" stroke-width="2"/><ellipse cx="38" cy="72" rx="9" ry="4" transform="rotate(-38 38 72)" fill="#fff" opacity=".55"/><ellipse cx="40" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity=".85"/><ellipse cx="88" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity=".85"/><ellipse cx="52" cy="82" rx="5" ry="6.5" fill="#0f2418"/><ellipse cx="76" cy="82" rx="5" ry="6.5" fill="#0f2418"/><circle cx="50.4" cy="79.2" r="1.9" fill="#fff"/><circle cx="74.4" cy="79.2" r="1.9" fill="#fff"/><path d="M57 93 Q64 99 71 93" fill="none" stroke="#5b1f2a" stroke-width="2.6" stroke-linecap="round"/><path d="M45 40 L83 40 L81 55 Q64 59 47 55 Z" fill="#1f2228"/><path d="M26 39 L64 28 L102 39 L64 50 Z" fill="#1f2228"/><path d="M26 36 L64 25 L102 36 L64 47 Z" fill="#363b46" stroke="#4b515c" stroke-width="1.2"/><path d="M64 36 L98 37 Q101 44 100 52" fill="none" stroke="#f4c74f" stroke-width="2.2" stroke-linecap="round"/><circle cx="64" cy="36" r="2.6" fill="#f4c74f"/><rect x="96.5" y="50" width="7" height="12" rx="2.4" fill="#f4c74f"/></svg>
+  <span class="name">Professor Pi</span>
+</div>
+</body>
+</html>

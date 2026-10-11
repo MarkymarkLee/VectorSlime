@@ -1,0 +1,78 @@
+<template>
+  <div id="root" data-composition-id="06-socratic" data-start="0" data-duration="8.4" data-width="1920" data-height="1080">
+    <style>
+      @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2"); font-weight: 200 800; font-display: block; }
+      @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: "Geist", sans-serif; color: #F4F1EA; }
+      #f06-ground { position: absolute; inset: 0; background: #12151C; }
+      #f06-chip { position: absolute; left: 256px; top: 36px; height: 40px; padding: 0 20px; border-radius: 20px; background: #4FD27E; color: #12151C; font: 500 14px/40px "Geist", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; }
+      #f06-win { position: absolute; left: 250px; top: 94px; width: 1420px; height: 804px; box-sizing: border-box; border: 1px solid #262A33; border-radius: 10px; transform-origin: 0 0; will-change: transform; }
+      #f06-still { position: absolute; left: 5px; top: 5px; width: 1408px; height: 792px; display: block; }
+      #f06-words { position: absolute; left: 1000px; top: 226px; width: 800px; }
+      .f06-word { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 132px; line-height: 1.0; letter-spacing: -0.03em; text-transform: lowercase; color: #F4F1EA; white-space: nowrap; }
+      .f06-word.f06-accent { color: #4FD27E; }
+      #f06-rule { position: absolute; left: 1004px; top: 784px; width: 36px; height: 2px; background: #4FD27E; transform-origin: 0 50%; }
+      #f06-label { position: absolute; left: 1004px; top: 806px; font: 500 18px/1.4 "Geist", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #9AA0AA; white-space: nowrap; }
+    </style>
+
+    <div id="f06-ground" class="clip" data-start="0" data-duration="8.4" data-track-index="1"></div>
+
+    <video data-frame-video="approved" src="assets/video/f06-window.mp4" muted playsinline data-start="0" data-duration="2.8" data-track-index="0" data-frame-video-x="256" data-frame-video-y="100" data-frame-video-width="1408" data-frame-video-height="792" data-frame-video-fit="cover"></video>
+
+    <div id="f06-win"><img id="f06-still" src="assets/f06-window-last.png" alt="" /></div>
+
+    <div id="f06-chip">how it teaches</div>
+
+    <div id="f06-words">
+      <span class="f06-word" id="f06-w1">ask.</span>
+      <span class="f06-word" id="f06-w2">wait.</span>
+      <span class="f06-word" id="f06-w3">look.</span>
+      <span class="f06-word f06-accent" id="f06-w4">nudge.</span>
+    </div>
+    <div id="f06-rule"></div>
+    <div id="f06-label">max 4 sentences · ends on a question</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        // Scene 1 (0–2.8s): video owns the window rect; chip settles in the top band.
+        tl.fromTo("#f06-chip", { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.15);
+
+        // Scene 2 (2.8–3.5s): still (pixel-identical to the last video frame) slides left + scales to 0.56.
+        // card-morph-anchor: uniform scale + translate + border-radius in ONE tween.
+        const S = 0.56;
+        const PAD = 6; // img inset inside the hairline wrapper (5px + 1px border)
+        const dx = (96 - PAD * S) - 250;
+        const dy = (282 - PAD * S) - 94;
+        const MORPH_START = 2.8, MORPH_DUR = 0.7;
+        tl.fromTo("#f06-win",
+          { x: 0, y: 0, scale: 1, borderRadius: 10 },
+          { x: dx, y: dy, scale: S, borderRadius: 10 / S, duration: MORPH_DUR, ease: "power3.inOut" },
+          MORPH_START);
+        tl.fromTo("#f06-chip", { x: 0 }, { x: 96 - 256, duration: MORPH_DUR, ease: "power3.inOut", immediateRender: false }, MORPH_START);
+
+        // Scene 3 (3.3–8s): words stack on the voice — pre-computed sequence, one entry per cue.
+        const CONTENT = [
+          { id: "#f06-w1", cue: 3.3 },  // "Four sentences"
+          { id: "#f06-w2", cue: 3.62 },
+          { id: "#f06-w3", cue: 3.96 }, // "max"
+          { id: "#f06-w4", cue: 4.45 }, // "You find it yourself"
+        ];
+        const TIMELINE = CONTENT.map((e, i) => ({ ...e, start: e.cue, end: i < CONTENT.length - 1 ? CONTENT[i + 1].cue : 8 }));
+        TIMELINE.forEach((e) => {
+          tl.fromTo(e.id, { opacity: 0, y: 48 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, e.start);
+        });
+
+        // Rule + caps label land on "yourself", then hold still.
+        tl.fromTo("#f06-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 4.97);
+        tl.fromTo("#f06-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 5.05);
+
+        tl.set({}, {}, 8);
+        window.__timelines["06-socratic"] = tl;
+      })();
+    </script>
+  </div>
+</template>

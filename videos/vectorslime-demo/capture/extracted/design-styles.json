@@ -1,0 +1,246 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": "54.4px",
+      "fontWeight": "700",
+      "lineHeight": "56.576px",
+      "letterSpacing": "-1.904px",
+      "color": "oklch(0.967 0.001 286.375)",
+      "sampleText": "What are we learning today?"
+    },
+    {
+      "role": "heading",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "lineHeight": "28px",
+      "letterSpacing": "-0.5px",
+      "color": "oklch(0.967 0.001 286.375)",
+      "sampleText": "Courses"
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "lineHeight": "22.5px",
+      "letterSpacing": "normal",
+      "color": "oklch(0.967 0.001 286.375)",
+      "sampleText": "Linear Algebra"
+    },
+    {
+      "role": "body",
+      "fontFamily": "Geist",
+      "fontSize": "18px",
+      "fontWeight": "400",
+      "lineHeight": "29.25px",
+      "letterSpacing": "normal",
+      "color": "oklch(0.705 0.015 286.067)",
+      "sampleText": "Pick a course, bring your homework, or just start talking. E"
+    },
+    {
+      "role": "label",
+      "fontFamily": "Geist",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "#000000",
+      "sampleText": "LIVEProfessor Pi"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "lineHeight": "21.4286px",
+      "letterSpacing": "normal",
+      "color": "#FFFFFF",
+      "sampleText": "Today's plan"
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Geist",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "lineHeight": "16px",
+      "letterSpacing": "normal",
+      "color": "oklch(0.552 0.016 285.938)",
+      "sampleText": "Or follow a course"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      2,
+      4,
+      8,
+      12,
+      16
+    ],
+    "baseUnit": 4
+  },
+  "radius": [
+    "8px",
+    "12px",
+    "16px",
+    "22px",
+    "3.35544e+07px"
+  ],
+  "shadows": [
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "count": 3
+    },
+    {
+      "value": "rgba(0, 0, 0, 0.16) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 3px 0px, rgba(0, 0, 0, 0.1) 0px 2px 6px 0px, rgb(255, 255, 255) 0px 0px 0px 1px inset",
+      "count": 2
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.2) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "count": 2
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.1) 0px 0px 0px 1px, rgba(5, 20, 12, 0.45) 0px 18px 50px 0px",
+      "count": 2
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "Move focus to canvas",
+      "background": "#EDF0F2",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#2E2E2E",
+      "padding": "8px 16px",
+      "borderRadius": "9px",
+      "border": "0px none rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "height": "40px"
+    },
+    {
+      "label": "button",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#1D1D1D",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px none rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "height": "40px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#FCFCFC",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "9px",
+      "border": "0px solid rgb(0, 0, 0)",
+      "boxShadow": "rgba(0, 0, 0, 0.16) 0px 0px 2px 0px, rgba(0, 0, 0, 0.24) 0px 2px 3px 0px, rgba(0, 0, 0, 0.1) 0px 2px 6px 0px, rgb(255, 255, 255) 0px 0px 0px 1px inset",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "height": "284px"
+    },
+    {
+      "label": "card",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "height": "157px"
+    },
+    {
+      "label": "card",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px solid rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "height": "120px"
+    },
+    {
+      "label": "card",
+      "background": "#121A16",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "oklch(0.967 0.001 286.375)",
+      "padding": "20px",
+      "borderRadius": "22px",
+      "border": "0px solid oklch(0.967 0.001 286.375)",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.1) 0px 0px 0px 1px, rgba(20, 60, 38, 0.4) 0px 18px 50px -30px",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "203.75px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "#EDF0F2",
+    "backgroundImage": "",
+    "backdropFilter": "",
+    "color": "#000000",
+    "padding": "0px",
+    "borderRadius": "0px 0px 11px",
+    "border": "",
+    "boxShadow": "none",
+    "fontSize": "12px",
+    "fontWeight": "500",
+    "height": "42px"
+  },
+  "chips": [],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [
+    {
+      "value": "radial-gradient(circle, rgba(220, 255, 230, 0.06) 1px, rgba(0, 0, 0, 0) 1.2px)",
+      "area": 2073600
+    },
+    {
+      "value": "radial-gradient(120% 90% at 50% 30%, rgb(31, 58, 43) 0%, rgb(14, 26, 20) 70%)",
+      "area": 86700
+    }
+  ],
+  "glass": [
+    {
+      "backdropFilter": "blur(8px)",
+      "background": "oklab(0.174616 -0.0107152 0.00321345 / 0.95)",
+      "border": "0px solid oklch(0.92 0.004 286.32)",
+      "borderRadius": "16px",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.1) 0px 0px 0px 1px, rgba(5, 20, 12, 0.45) 0px 18px 50px 0px",
+      "area": 232360
+    },
+    {
+      "backdropFilter": "blur(8px)",
+      "background": "oklab(0.999994 0.0000455678 0.0000200868 / 0.95)",
+      "border": "0px solid oklch(0.21 0.006 285.885)",
+      "borderRadius": "16px",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0.05) 0px 0px 0px 1px, rgba(8, 30, 18, 0.22) 0px 10px 30px 0px",
+      "area": 14663
+    }
+  ]
+}

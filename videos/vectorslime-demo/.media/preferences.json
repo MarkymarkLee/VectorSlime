@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "youtube",
+      "confirmed_in": [
+        "vectorslime-demo"
+      ],
+      "updated_at": "2026-10-11T06:31:58.859Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "vectorslime-demo"
+      ],
+      "updated_at": "2026-10-11T06:31:58.934Z"
+    },
+    "language": {
+      "value": "en",
+      "confirmed_in": [
+        "vectorslime-demo"
+      ],
+      "updated_at": "2026-10-11T06:31:59.007Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "vectorslime-demo"
+      ],
+      "updated_at": "2026-10-11T06:31:59.079Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "vectorslime-demo"
+      ],
+      "updated_at": "2026-10-11T06:31:59.150Z"
+    },
+    "style_preset.product-launch-video": {
+      "value": "broadside",
+      "confirmed_in": [
+        "vectorslime-demo"
+      ],
+      "updated_at": "2026-10-11T06:41:46.596Z"
+    }
+  },
+  "sightings": {}
+}

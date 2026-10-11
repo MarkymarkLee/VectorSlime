@@ -1,0 +1,706 @@
+{
+  "title": "VectorSlime",
+  "description": "A live, voice-first AI tutor that shares a whiteboard with you",
+  "cssVariables": {},
+  "fonts": [
+    {
+      "family": "Geist",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "variable": true,
+      "weightRange": [
+        100,
+        900
+      ]
+    },
+    {
+      "family": "Bricolage Grotesque",
+      "weights": [
+        600,
+        700
+      ],
+      "variable": true,
+      "weightRange": [
+        200,
+        800
+      ]
+    },
+    {
+      "family": "KaTeX_AMS",
+      "weights": [
+        400
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Caligraphic",
+      "weights": [
+        400,
+        700
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Fraktur",
+      "weights": [
+        400,
+        700
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Main",
+      "weights": [
+        400,
+        700
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Math",
+      "weights": [
+        400,
+        700
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_SansSerif",
+      "weights": [
+        400,
+        700
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Script",
+      "weights": [
+        400
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Size1",
+      "weights": [
+        400
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Size2",
+      "weights": [
+        400
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Size3",
+      "weights": [
+        400
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Size4",
+      "weights": [
+        400
+      ],
+      "variable": false
+    },
+    {
+      "family": "KaTeX_Typewriter",
+      "weights": [
+        400
+      ],
+      "variable": false
+    },
+    {
+      "family": "__nextjs-Geist",
+      "weights": [],
+      "variable": true,
+      "weightRange": [
+        400,
+        600
+      ]
+    },
+    {
+      "family": "__nextjs-Geist Mono",
+      "weights": [],
+      "variable": true,
+      "weightRange": [
+        400,
+        600
+      ]
+    }
+  ],
+  "colors": [
+    "#2E2E2E",
+    "#F4F4F5",
+    "#0C120F",
+    "#F7F8F7",
+    "#121A16",
+    "#9F9FA9",
+    "#131A15",
+    "#000000",
+    "#888D91",
+    "#E4E4E7",
+    "#FFFFFF",
+    "#D4D4D8",
+    "#EDF0F2",
+    "#1D1D1D",
+    "#9FA8B2",
+    "#E085F4",
+    "#AE3EC9",
+    "#4465E9",
+    "#4BA1F1",
+    "#F1AC4B"
+  ],
+  "headings": [
+    {
+      "level": 2,
+      "text": "Today's plan",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "color": "#FFFFFF"
+    },
+    {
+      "level": 3,
+      "text": "Or follow a course",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "color": "#71717B"
+    },
+    {
+      "level": 1,
+      "text": "What are we learning today?",
+      "fontSize": "54.4px",
+      "fontWeight": "700",
+      "color": "#F4F4F5"
+    },
+    {
+      "level": 2,
+      "text": "Courses",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "color": "#F4F4F5"
+    },
+    {
+      "level": 3,
+      "text": "Linear Algebra",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "color": "#F4F4F5"
+    },
+    {
+      "level": 2,
+      "text": "Other sessions",
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "color": "#F4F4F5"
+    },
+    {
+      "level": 3,
+      "text": "Homework help",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "color": "#F4F4F5"
+    },
+    {
+      "level": 3,
+      "text": "Open session",
+      "fontSize": "18px",
+      "fontWeight": "600",
+      "color": "#F4F4F5"
+    }
+  ],
+  "ctas": [
+    {
+      "text": "Get a license for production"
+    }
+  ],
+  "svgs": [
+    {
+      "label": "tl-svg-context",
+      "width": 1920,
+      "height": 1080,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 18,
+      "height": 18,
+      "isLogo": true
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 16,
+      "height": 16,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 28,
+      "height": 28,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 22,
+      "height": 22,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 16,
+      "height": 16,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 20,
+      "height": 20,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 18,
+      "height": 18,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 18,
+      "height": 18,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 18,
+      "height": 18,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 18,
+      "height": 18,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 18,
+      "height": 18,
+      "isLogo": false
+    },
+    {
+      "viewBox": "16 20 96 94",
+      "width": 30,
+      "height": 30,
+      "isLogo": true
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 17,
+      "height": 17,
+      "isLogo": false
+    },
+    {
+      "label": "dark:text-slime-300",
+      "viewBox": "0 0 256 256",
+      "width": 24,
+      "height": 24,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 16,
+      "height": 16,
+      "isLogo": false
+    },
+    {
+      "label": "dark:text-slime-300",
+      "viewBox": "0 0 256 256",
+      "width": 24,
+      "height": 24,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 16,
+      "height": 16,
+      "isLogo": false
+    },
+    {
+      "label": "dark:text-slime-300",
+      "viewBox": "0 0 256 256",
+      "width": 24,
+      "height": 24,
+      "isLogo": false
+    },
+    {
+      "viewBox": "0 0 256 256",
+      "width": 16,
+      "height": 16,
+      "isLogo": false
+    }
+  ],
+  "sections": [
+    {
+      "selector": "section",
+      "type": "hero",
+      "x": 410,
+      "y": 64,
+      "width": 1100,
+      "height": 282,
+      "heading": "What are we learning today?",
+      "backgroundColor": "#0C120F",
+      "callsToAction": [],
+      "text": "What are we learning today? Pick a course, bring your homework, or just start talking. Every session starts on a fresh board.",
+      "layout": "centered",
+      "assetUrls": []
+    },
+    {
+      "selector": "section",
+      "type": "content",
+      "x": 410,
+      "y": 394,
+      "width": 1100,
+      "height": 248,
+      "heading": "Courses",
+      "backgroundColor": "#0C120F",
+      "callsToAction": [
+        "Start course"
+      ],
+      "text": "Courses Linear Algebra From arrows to eigenvectors, one picture at a time. 12 lessons. Starts with: lesson 1, Vectors: arrows and lists Start course",
+      "layout": "centered",
+      "assetUrls": []
+    },
+    {
+      "selector": "section",
+      "type": "content",
+      "x": 410,
+      "y": 682,
+      "width": 1100,
+      "height": 213,
+      "heading": "Other sessions",
+      "backgroundColor": "#0C120F",
+      "callsToAction": [
+        "Choose homework",
+        "Go live"
+      ],
+      "text": "Other sessions Homework help Drop a PDF or a photo here. Your tutor reads it, finds the concepts you need and plans the session. Choose homework Open session No plan. Ask anything, draw a problem, and work through it together. Go live",
+      "layout": "centered",
+      "assetUrls": []
+    }
+  ],
+  "colorStats": [
+    {
+      "hex": "#2E2E2E",
+      "count": 117,
+      "bgCount": 44,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 73,
+      "maxArea": 324
+    },
+    {
+      "hex": "#000000",
+      "count": 112,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 111,
+      "maxArea": 1735
+    },
+    {
+      "hex": "#F4F4F5",
+      "count": 78,
+      "bgCount": 0,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 78,
+      "maxArea": 0
+    },
+    {
+      "hex": "#FFFFFF",
+      "count": 29,
+      "bgCount": 19,
+      "interactiveBg": 2,
+      "areaBg": 0,
+      "textCount": 10,
+      "maxArea": 21608
+    },
+    {
+      "hex": "#9F9FA9",
+      "count": 27,
+      "bgCount": 0,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 27,
+      "maxArea": 0
+    },
+    {
+      "hex": "#84E9A0",
+      "count": 13,
+      "bgCount": 0,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 13,
+      "maxArea": 0
+    },
+    {
+      "hex": "#888D91",
+      "count": 12,
+      "bgCount": 4,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 8,
+      "maxArea": 225
+    },
+    {
+      "hex": "#E4E4E7",
+      "count": 8,
+      "bgCount": 0,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 8,
+      "maxArea": 0
+    },
+    {
+      "hex": "#D4D4D8",
+      "count": 7,
+      "bgCount": 0,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 7,
+      "maxArea": 0
+    },
+    {
+      "hex": "#EDF0F2",
+      "count": 2,
+      "bgCount": 2,
+      "interactiveBg": 1,
+      "areaBg": 0,
+      "textCount": 0,
+      "maxArea": 12650
+    },
+    {
+      "hex": "#4FD27E",
+      "count": 1,
+      "bgCount": 1,
+      "interactiveBg": 1,
+      "areaBg": 0,
+      "textCount": 0,
+      "maxArea": 6299
+    },
+    {
+      "hex": "#FCFCFC",
+      "count": 3,
+      "bgCount": 3,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 0,
+      "maxArea": 42032
+    },
+    {
+      "hex": "#1D1D1D",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#9FA8B2",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#E085F4",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#AE3EC9",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#4465E9",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#4BA1F1",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#F1AC4B",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#E16919",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#099268",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#4CB05E",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#F87777",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#E03131",
+      "count": 3,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 2,
+      "maxArea": 324
+    },
+    {
+      "hex": "#0C120F",
+      "count": 3,
+      "bgCount": 3,
+      "interactiveBg": 0,
+      "areaBg": 3,
+      "textCount": 0,
+      "maxArea": 2073600
+    },
+    {
+      "hex": "#51D780",
+      "count": 3,
+      "bgCount": 3,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 0,
+      "maxArea": 1936
+    },
+    {
+      "hex": "#0A2E1B",
+      "count": 3,
+      "bgCount": 0,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 3,
+      "maxArea": 0
+    },
+    {
+      "hex": "#F7F8F7",
+      "count": 2,
+      "bgCount": 2,
+      "interactiveBg": 0,
+      "areaBg": 2,
+      "textCount": 0,
+      "maxArea": 2073600
+    },
+    {
+      "hex": "#F9FAFB",
+      "count": 2,
+      "bgCount": 2,
+      "interactiveBg": 0,
+      "areaBg": 1,
+      "textCount": 0,
+      "maxArea": 2073600
+    },
+    {
+      "hex": "#121A16",
+      "count": 2,
+      "bgCount": 2,
+      "interactiveBg": 0,
+      "areaBg": 2,
+      "textCount": 0,
+      "maxArea": 224125
+    },
+    {
+      "hex": "#131A15",
+      "count": 2,
+      "bgCount": 2,
+      "interactiveBg": 0,
+      "areaBg": 2,
+      "textCount": 0,
+      "maxArea": 91598
+    },
+    {
+      "hex": "#3182ED",
+      "count": 1,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 0,
+      "maxArea": 372
+    },
+    {
+      "hex": "#E7000B",
+      "count": 1,
+      "bgCount": 1,
+      "interactiveBg": 0,
+      "areaBg": 0,
+      "textCount": 0,
+      "maxArea": 1105
+    }
+  ],
+  "page": {
+    "width": 1920,
+    "height": 1080,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    }
+  }
+}

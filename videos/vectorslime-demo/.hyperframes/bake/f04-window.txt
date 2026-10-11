@@ -1,0 +1,2 @@
+file '/Users/mark/coding/hackathons/VectorSlime/videos/vectorslime-demo/.hyperframes/bake/f04a.mp4'
+file '/Users/mark/coding/hackathons/VectorSlime/videos/vectorslime-demo/.hyperframes/bake/f04b.mp4'

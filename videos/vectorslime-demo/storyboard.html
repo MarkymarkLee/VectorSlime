@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VectorSlime Demo — Storyboard v1</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url(assets/fonts/BricolageGrotesque-Variable.woff2) format("woff2");font-weight:200 800}
+@font-face{font-family:"Geist";src:url(assets/fonts/Geist-Variable.woff2) format("woff2");font-weight:100 900}
+:root{--ink:#12151C;--ink2:#1A1E27;--cream:#F4F1EA;--muted:#9AA0AA;--hint:#5A606B;--line:#262A33;--slime:#4FD27E;--slime-lt:#B6F5C4;--gold:#F4C74F;--board:#F7F8F7}
+*{box-sizing:border-box;margin:0}
+body{background:#0B0D12;color:var(--cream);font-family:Geist,system-ui,sans-serif;padding:48px 40px 80px}
+header{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px;border-bottom:1px solid var(--line);padding-bottom:20px}
+h1{font-family:"Bricolage Grotesque";font-weight:700;font-size:44px;letter-spacing:-.03em}
+h1 small{font-size:18px;color:var(--slime);font-weight:600;margin-left:10px;vertical-align:middle}
+.dek{color:var(--muted);margin-top:6px;font-size:16px;max-width:760px}
+.tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--slime);padding:8px 12px;border-radius:999px;white-space:nowrap;font-weight:600}
+.act{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:30px 0 12px;display:flex;gap:12px;align-items:center}
+.act:after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cell{display:flex;flex-direction:column;gap:10px}
+.f{aspect-ratio:16/9;container-type:inline-size;position:relative;overflow:hidden;border-radius:10px;background:var(--ink);outline:1px solid var(--line)}
+.f *{position:absolute}
+.meta{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.meta b{color:var(--cream);font-weight:600}
+.note{font-size:14px;line-height:1.5;color:#C9CCD2}
+.note b{color:var(--cream)}
+.chip{align-self:flex-start;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);color:var(--slime);padding:4px 10px;border-radius:999px}
+/* drawing atoms (sizes in cqw so they match the 1920 build) */
+.disp{font-family:"Bricolage Grotesque";font-weight:700;letter-spacing:-.035em;line-height:.92;text-transform:lowercase}
+.lbl{font-size:.75cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.media{background:var(--board);border-radius:.6cqw;outline:.12cqw solid #2c313b}
+.media .ph{inset:0;display:grid;place-items:center;color:#8c939e;font-size:1.2cqw;letter-spacing:.1em;text-transform:uppercase;position:absolute}
+.slime{width:var(--w);aspect-ratio:96/94}
+.slime svg{position:static;width:100%;height:100%}
+.pill{border-radius:999px;font-weight:600}
+.wall{left:6cqw;right:6cqw;top:30cqw;bottom:-2cqw;color:#3c424d;font-size:1.25cqw;line-height:1.45;overflow:hidden}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>VectorSlime — "The slime pitches itself" <small>v1</small></h1>
+    <p class="dek">The tutor narrates its own demo and teaches the viewer the way it teaches students: ask, show, wait. Real footage in the middle, typographic bookends. Every line traces to README.md.</p>
+  </div>
+  <span class="tag">1920×1080 · ~60s · 9 frames</span>
+</header>
+
+
+<div class="act">Act I · before — 0–16s</div>
+<div class="grid">
+  <div class="cell">
+    <div class="f" id="frame-01">
+      <div class="lbl" style="left:6cqw;top:6cqw">01 · a question</div>
+      <div style="left:6cqw;right:6cqw;top:14cqw;height:7cqw;border-radius:999px;background:var(--ink2);outline:.15cqw solid var(--line)"></div>
+      <div style="left:9cqw;top:15.9cqw;font-size:2.4cqw;color:var(--cream)">how do I find eigenvectors?<span style="position:static;color:var(--slime)">▍</span></div>
+      <div class="wall">To find the eigenvectors of a matrix A, first compute the characteristic polynomial det(A − λI) = 0 and solve for each eigenvalue λ. For each λ, substitute back into (A − λI)v = 0 and row-reduce the augmented matrix to reduced row echelon form. The free variables parameterize the null space, which is the eigenspace associated with λ. Note that eigenvectors are only defined up to a scalar multiple, so any nonzero multiple is also an eigenvector. If the algebraic multiplicity exceeds the geometric multiplicity the matrix is defective and… In summary, the procedure consists of the following eleven steps…</div>
+    </div>
+    <div class="meta"><b>01 · The question</b><span>f01 · 0–5s</span></div>
+    <p class="note"><b>The caret types the prompt first,</b> then the wall of text floods up from the bottom and buries the frame. Starts on a hard cut from black.</p>
+    <span class="chip">in: cut</span>
+  </div>
+
+  <div class="cell">
+    <div class="f" id="frame-02">
+      <div class="wall" style="top:0;bottom:0;color:#262b34">To find the eigenvectors of a matrix A, first compute the characteristic polynomial det(A − λI) = 0 and solve for each eigenvalue λ. For each λ, substitute back into (A − λI)v = 0 and row-reduce the augmented matrix to reduced row echelon form. The free variables parameterize the null space, which is the eigenspace associated with λ. Note that eigenvectors are only defined up to a scalar multiple, so any nonzero multiple is also an eigenvector. If the algebraic multiplicity exceeds the geometric multiplicity the matrix is defective and… In summary, the procedure consists of the following eleven steps… To find the eigenvectors of a matrix A, first compute the characteristic polynomial det(A − λI) = 0 and solve for each eigenvalue λ.</div>
+      <div class="disp" style="left:6cqw;top:12cqw;font-size:7.5cqw;color:var(--cream)">answers,<br>handed over.</div>
+      <div class="disp" style="left:6cqw;top:33cqw;font-size:7.5cqw;color:var(--slime)">no reasoning<br>built.</div>
+    </div>
+    <div class="meta"><b>02 · Wall of text</b><span>f02 · 5–10s</span></div>
+    <p class="note"><b>The wall freezes and dims to 20%,</b> then the lines punch through it one at a time on the VO. The last line is in slime green.</p>
+    <span class="chip">in: cut (same wall continues)</span>
+  </div>
+
+  <div class="cell">
+    <div class="f" id="frame-03">
+      <div class="slime" style="--w:30cqw;left:8cqw;top:12cqw"><svg viewBox="16 20 96 94"><defs><linearGradient id="sb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6f5c4"/><stop offset=".45" stop-color="#4fd27e"/><stop offset="1" stop-color="#22a456"/></linearGradient></defs><path d="M20 104 C20 72 38 52 64 52 C90 52 108 72 108 104 C108 110 100 111 64 111 C28 111 20 110 20 104 Z" fill="url(#sb)" stroke="rgba(14,84,44,.55)" stroke-width="2"/><ellipse cx="38" cy="72" rx="9" ry="4" transform="rotate(-38 38 72)" fill="#fff" opacity=".55"/><ellipse cx="40" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity=".85"/><ellipse cx="88" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity=".85"/><ellipse cx="52" cy="82" rx="5" ry="6.5" fill="#0f2418"/><ellipse cx="76" cy="82" rx="5" ry="6.5" fill="#0f2418"/><circle cx="50.4" cy="79.2" r="1.9" fill="#fff"/><circle cx="74.4" cy="79.2" r="1.9" fill="#fff"/><path d="M57 93 Q64 99 71 93" fill="none" stroke="#5b1f2a" stroke-width="2.6" stroke-linecap="round"/><path d="M45 40 L83 40 L81 55 Q64 59 47 55 Z" fill="#1f2228"/><path d="M26 39 L64 28 L102 39 L64 50 Z" fill="#1f2228"/><path d="M26 36 L64 25 L102 36 L64 47 Z" fill="#363b46" stroke="#4b515c" stroke-width="1.2"/><path d="M64 36 L98 37 Q101 44 100 52" fill="none" stroke="#f4c74f" stroke-width="2.2" stroke-linecap="round"/><circle cx="64" cy="36" r="2.6" fill="#f4c74f"/><rect x="96.5" y="50" width="7" height="12" rx="2.4" fill="#f4c74f"/></svg></div>
+      <div class="disp" style="left:44cqw;top:17cqw;font-size:8cqw;text-transform:none;letter-spacing:-.04em">VectorSlime</div>
+      <div style="left:44.4cqw;top:28cqw;font-size:2.2cqw;color:var(--muted);line-height:1.35">don't ask AI for answers.<br><span style="position:static;color:var(--slime)">think with it.</span></div>
+      <div style="left:8cqw;width:30cqw;top:43.5cqw;height:1.2cqw;border-radius:50%;background:#000;opacity:.5"></div>
+    </div>
+    <div class="meta"><b>03 · Meet the slime</b><span>f03 · 10–16s</span></div>
+    <p class="note"><b>The slime drops from above, squashes on landing</b> and the hat wobbles. Then the wordmark slides in from the right and the tagline types out. Zoom-through from the wall.</p>
+    <span class="chip">in: zoom-through</span>
+  </div>
+</div>
+
+<div class="act">Act II · the bridge (real footage) — 16–41s</div>
+<div class="grid">
+  <div class="cell">
+    <div class="f" id="frame-04">
+      <div class="media" style="left:4cqw;top:5cqw;width:92cqw;height:46.25cqw;background:#0c120f"><div class="ph" style="color:#4a5a50">session-golive.mp4 · board + stream cam</div></div>
+      <div class="media" style="right:6cqw;bottom:6cqw;width:28cqw;height:20cqw;background:#16241c;outline:.25cqw solid var(--slime)"><div class="ph" style="color:var(--slime-lt);font-size:1.4cqw">cam punch-in · LIVE · caption</div></div>
+      <div class="pill" style="left:6cqw;bottom:6cqw;background:var(--slime);color:var(--ink);font-size:1.4cqw;padding:.8cqw 1.6cqw;letter-spacing:.12em;text-transform:uppercase">01 · talk</div>
+    </div>
+    <div class="meta"><b>04 · Talk</b><span>f04 · 16–23s</span></div>
+    <p class="note"><b>The dashboard plays, "Go live" is clicked,</b> and the board opens. Then the camera punches into the stream cam (the bottom-right quarter) as the greeting caption appears. The chip slides up from the bottom-left.</p>
+    <span class="chip">in: blur-crossfade</span>
+  </div>
+
+  <div class="cell">
+    <div class="f" id="frame-05">
+      <div class="media" style="left:4cqw;top:5cqw;width:92cqw;height:46.25cqw"><div class="ph">session-widget-build.mp4</div></div>
+      <div style="left:44cqw;top:9cqw;width:40cqw;height:24cqw;border-radius:.6cqw;outline:.3cqw solid var(--slime);background:rgba(79,210,126,.08)"></div>
+      <div style="left:45cqw;top:10cqw;font-size:1.3cqw;color:#1b8346;font-weight:600">● Which vectors keep their direction?</div>
+      <div class="pill" style="left:6cqw;bottom:6cqw;background:var(--slime);color:var(--ink);font-size:1.4cqw;padding:.8cqw 1.6cqw;letter-spacing:.12em;text-transform:uppercase">03 · live tools</div>
+    </div>
+    <div class="meta"><b>05 · Build live tools</b><span>f05 · 23–33s</span></div>
+    <p class="note"><b>The student's typed message plays, the slime thinks,</b> and the matrix and widget land on the board. The camera pushes in on the widget (green outline). The chip swaps from "02 · shared board" to "03 · live tools".</p>
+    <span class="chip">in: crossfade</span>
+  </div>
+
+  <div class="cell">
+    <div class="f" id="frame-06">
+      <div class="media" style="left:4cqw;top:8cqw;width:52cqw;height:29.25cqw"><div class="ph">session-same-line.mp4</div></div>
+      <div style="left:30cqw;top:12cqw;font-size:1.6cqw;color:#22a456;font-weight:700">Same line!</div>
+      <div class="disp" style="left:62cqw;top:8cqw;font-size:5cqw;line-height:1.05;color:var(--cream)">ask.<br>wait.<br>look.<br><span style="position:static;color:var(--slime)">nudge.</span></div>
+      <div class="lbl" style="left:62cqw;top:40cqw;color:var(--slime-lt)">max 4 sentences · ends on a question</div>
+    </div>
+    <div class="meta"><b>06 · One question at a time</b><span>f06 · 33–41s</span></div>
+    <p class="note"><b>The footage starts full-bleed as "Same line!" lands,</b> then slides to the left 55% while the four words stack in on the right, one per VO phrase.</p>
+    <span class="chip">in: crossfade</span>
+  </div>
+</div>
+
+<div class="act">Act III · bigger than a tutor — 41–60s</div>
+<div class="grid">
+  <div class="cell">
+    <div class="f" id="frame-07">
+      <div class="disp" style="left:6cqw;top:10cqw;font-size:9cqw;color:var(--cream)">runs on<br>your laptop.</div>
+      <div style="left:6cqw;top:35cqw;font-size:2.4cqw;color:var(--muted)">or any model:</div>
+      <div class="pill" style="left:23cqw;top:34.2cqw;font-size:2.4cqw;padding:.5cqw 1.8cqw;background:var(--slime);color:var(--ink)">oMLX</div>
+      <div class="lbl" style="left:6cqw;top:44cqw">ollama · lm studio · anthropic · openai</div>
+    </div>
+    <div class="meta"><b>07 · Runs on your laptop</b><span>f07 · 41–47s</span></div>
+    <p class="note"><b>The headline sets first.</b> Then the green pill stays fixed while its label hard-cuts through oMLX → Ollama → LM Studio → Anthropic → OpenAI.</p>
+    <span class="chip">in: zoom-through</span>
+  </div>
+
+  <div class="cell">
+    <div class="f" id="frame-08" style="background:var(--board)">
+      <div class="lbl" style="left:6cqw;top:5cqw;color:#5a606b">math is where we start</div>
+      <div class="slime" style="--w:14cqw;left:43cqw;top:19cqw"><svg viewBox="16 20 96 94"><defs><linearGradient id="sb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6f5c4"/><stop offset=".45" stop-color="#4fd27e"/><stop offset="1" stop-color="#22a456"/></linearGradient></defs><path d="M20 104 C20 72 38 52 64 52 C90 52 108 72 108 104 C108 110 100 111 64 111 C28 111 20 110 20 104 Z" fill="url(#sb)" stroke="rgba(14,84,44,.55)" stroke-width="2"/><ellipse cx="38" cy="72" rx="9" ry="4" transform="rotate(-38 38 72)" fill="#fff" opacity=".55"/><ellipse cx="40" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity=".85"/><ellipse cx="88" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity=".85"/><ellipse cx="52" cy="82" rx="5" ry="6.5" fill="#0f2418"/><ellipse cx="76" cy="82" rx="5" ry="6.5" fill="#0f2418"/><circle cx="50.4" cy="79.2" r="1.9" fill="#fff"/><circle cx="74.4" cy="79.2" r="1.9" fill="#fff"/><path d="M57 93 Q64 99 71 93" fill="none" stroke="#5b1f2a" stroke-width="2.6" stroke-linecap="round"/><path d="M45 40 L83 40 L81 55 Q64 59 47 55 Z" fill="#1f2228"/><path d="M26 39 L64 28 L102 39 L64 50 Z" fill="#1f2228"/><path d="M26 36 L64 25 L102 36 L64 47 Z" fill="#363b46" stroke="#4b515c" stroke-width="1.2"/><path d="M64 36 L98 37 Q101 44 100 52" fill="none" stroke="#f4c74f" stroke-width="2.2" stroke-linecap="round"/><circle cx="64" cy="36" r="2.6" fill="#f4c74f"/><rect x="96.5" y="50" width="7" height="12" rx="2.4" fill="#f4c74f"/></svg></div>
+      <div style="left:8cqw;top:12cqw;width:24cqw;height:12cqw;background:#fff3a8;border-radius:.4cqw;transform:rotate(-3deg);color:var(--ink);font:700 2.4cqw 'Bricolage Grotesque';padding:1.4cqw">any subject</div>
+      <div style="right:8cqw;top:11cqw;width:24cqw;height:12cqw;background:#c7f0d4;border-radius:.4cqw;transform:rotate(2deg);color:var(--ink);font:700 2.4cqw 'Bricolage Grotesque';padding:1.4cqw">brainstorms</div>
+      <div style="left:10cqw;bottom:8cqw;width:24cqw;height:12cqw;background:#ffd3de;border-radius:.4cqw;transform:rotate(2.5deg);color:var(--ink);font:700 2.4cqw 'Bricolage Grotesque';padding:1.4cqw">debates</div>
+      <div style="right:10cqw;bottom:7cqw;width:24cqw;height:12cqw;background:#cfe0ff;border-radius:.4cqw;transform:rotate(-2deg);color:var(--ink);font:700 2.4cqw 'Bricolage Grotesque';padding:1.4cqw">group work</div>
+    </div>
+    <div class="meta"><b>08 · Beyond math</b><span>f08 · 47–53s</span></div>
+    <p class="note"><b>A light whiteboard register (the app's own board).</b> The slime sits at center and four sticky notes slap on in a stagger, one per VO word.</p>
+    <span class="chip">in: crossfade</span>
+  </div>
+
+  <div class="cell">
+    <div class="f" id="frame-09">
+      <div class="slime" style="--w:18cqw;left:41cqw;top:8cqw"><svg viewBox="16 20 96 94"><defs><linearGradient id="sb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6f5c4"/><stop offset=".45" stop-color="#4fd27e"/><stop offset="1" stop-color="#22a456"/></linearGradient></defs><path d="M20 104 C20 72 38 52 64 52 C90 52 108 72 108 104 C108 110 100 111 64 111 C28 111 20 110 20 104 Z" fill="url(#sb)" stroke="rgba(14,84,44,.55)" stroke-width="2"/><ellipse cx="38" cy="72" rx="9" ry="4" transform="rotate(-38 38 72)" fill="#fff" opacity=".55"/><ellipse cx="40" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity=".85"/><ellipse cx="88" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity=".85"/><ellipse cx="52" cy="82" rx="5" ry="6.5" fill="#0f2418"/><ellipse cx="76" cy="82" rx="5" ry="6.5" fill="#0f2418"/><circle cx="50.4" cy="79.2" r="1.9" fill="#fff"/><circle cx="74.4" cy="79.2" r="1.9" fill="#fff"/><path d="M57 93 Q64 99 71 93" fill="none" stroke="#5b1f2a" stroke-width="2.6" stroke-linecap="round"/><path d="M45 40 L83 40 L81 55 Q64 59 47 55 Z" fill="#1f2228"/><path d="M26 39 L64 28 L102 39 L64 50 Z" fill="#1f2228"/><path d="M26 36 L64 25 L102 36 L64 47 Z" fill="#363b46" stroke="#4b515c" stroke-width="1.2"/><path d="M64 36 L98 37 Q101 44 100 52" fill="none" stroke="#f4c74f" stroke-width="2.2" stroke-linecap="round"/><circle cx="64" cy="36" r="2.6" fill="#f4c74f"/><rect x="96.5" y="50" width="7" height="12" rx="2.4" fill="#f4c74f"/></svg></div>
+      <div class="pill" style="left:43.5cqw;top:28cqw;font-size:1.6cqw;padding:.6cqw 1.6cqw;background:var(--slime);color:var(--ink)">Your turn</div>
+      <div class="disp" style="left:0;right:0;text-align:center;top:36cqw;font-size:4.2cqw;text-transform:none;letter-spacing:-.03em">VectorSlime</div>
+      <div style="left:0;right:0;text-align:center;top:46cqw;font-size:1.8cqw;color:var(--muted)">a shared space to think.</div>
+    </div>
+    <div class="meta"><b>09 · Your turn</b><span>f09 · 53–60s</span></div>
+    <p class="note"><b>The slime blinks and looks straight at the camera,</b> then the "Your turn" pill pops on the question. The wordmark and tagline rise underneath and hold to the end.</p>
+    <span class="chip">in: blur-crossfade</span>
+  </div>
+</div>
+
+<div class="act">Seams &amp; tokens</div>
+<div class="grid">
+  <div class="cell" style="grid-column:span 2">
+    <div class="f" style="aspect-ratio:32/9">
+      <div style="left:3cqw;right:3cqw;top:7cqw;display:flex;justify-content:space-between;align-items:center;position:absolute;font-size:1.3cqw;color:var(--muted)">
+        <span style="position:static;color:var(--cream)">01</span><span style="position:static">cut</span><span style="position:static;color:var(--cream)">02</span><span style="position:static;color:var(--slime)">zoom</span><span style="position:static;color:var(--cream)">03</span><span style="position:static">blur-x</span><span style="position:static;color:var(--cream)">04</span><span style="position:static">x</span><span style="position:static;color:var(--cream)">05</span><span style="position:static">x</span><span style="position:static;color:var(--cream)">06</span><span style="position:static;color:var(--slime)">zoom</span><span style="position:static;color:var(--cream)">07</span><span style="position:static">x</span><span style="position:static;color:var(--cream)">08</span><span style="position:static">blur-x</span><span style="position:static;color:var(--cream)">09</span>
+      </div>
+      <div class="lbl" style="left:3cqw;bottom:4cqw">zoom-through marks the two section turns (before → product, product → vision). The wall of text carries across 01→02 at the same position.</div>
+    </div>
+    <div class="meta"><b>Seam map</b><span>9 frames · 8 seams</span></div>
+  </div>
+  <div class="cell">
+    <div class="f">
+      <div style="left:5cqw;top:6cqw;display:flex;gap:1.5cqw;position:absolute">
+        <i style="position:static;display:block;width:9cqw;height:9cqw;border-radius:50%;background:var(--ink);outline:.2cqw solid var(--line)"></i>
+        <i style="position:static;display:block;width:9cqw;height:9cqw;border-radius:50%;background:var(--cream)"></i>
+        <i style="position:static;display:block;width:9cqw;height:9cqw;border-radius:50%;background:var(--slime)"></i>
+        <i style="position:static;display:block;width:9cqw;height:9cqw;border-radius:50%;background:var(--gold)"></i>
+        <i style="position:static;display:block;width:9cqw;height:9cqw;border-radius:50%;background:var(--board)"></i>
+      </div>
+      <div class="disp" style="left:5cqw;top:20cqw;font-size:5cqw">bricolage 700</div>
+      <div style="left:5cqw;top:29cqw;font-size:2.2cqw;color:var(--muted)">Geist 400 body · GEIST CAPS LABELS</div>
+      <div class="lbl" style="left:5cqw;top:40cqw;color:var(--hint)">bans: gradients on type · drop shadows on text · more than one accent per frame</div>
+    </div>
+    <div class="meta"><b>Tokens</b><span>frame.md · broadside → brand</span></div>
+  </div>
+</div>
+</body>
+</html>

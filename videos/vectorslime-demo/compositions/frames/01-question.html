@@ -1,0 +1,303 @@
+<template id="01-question-template">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: block; }
+  @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: block; }
+
+  #root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: "Geist", sans-serif;
+    color: #F4F1EA;
+  }
+  [id="01-question-ground"] {
+    position: absolute;
+    inset: 0;
+    background: #12151C;
+    container-type: size;
+  }
+  [id="01-question-stage"] {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  /* back wall — blurred second plane (depth-of-field-blur) */
+  [id="01-question-backwall" data-layout-allow-overlap] {
+    --dof: 0px;
+    position: absolute;
+    left: 60px;
+    right: 60px;
+    top: -40px;
+    height: 1900px;
+    font-family: "Geist", sans-serif;
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #5A606B;
+    filter: blur(var(--dof));
+    will-change: filter, transform;
+    z-index: 1;
+  }
+
+  /* front stack — kicker + chat input + reply bubble, scrolls as one */
+  [id="01-question-stack"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    z-index: 2;
+    will-change: transform;
+  }
+  [id="01-question-kicker"] {
+    position: absolute;
+    left: 115px;
+    top: 115px;
+    font-family: "Geist", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9AA0AA;
+  }
+  [id="01-question-burst"] {
+    position: absolute;
+    left: 115px;
+    top: 269px;
+    width: 1690px;
+    height: 134px;
+    border-radius: 999px;
+    background: #4FD27E;
+    filter: blur(44px);
+    opacity: 0;
+    transform-origin: 50% 50%;
+    z-index: 1;
+  }
+  [id="01-question-input"] {
+    position: absolute;
+    left: 115px;
+    top: 269px;
+    width: 1690px;
+    height: 134px;
+    box-sizing: border-box;
+    border-radius: 999px;
+    background: #1A1E27;
+    border: 3px solid #262A33;
+    transform-origin: 50% 50%;
+    z-index: 2;
+  }
+  [id="01-question-line"] {
+    position: absolute;
+    left: 55px;
+    top: 0;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    white-space: pre;
+    font-family: "Geist", sans-serif;
+    font-size: 46px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    color: #F4F1EA;
+  }
+  [id="01-question-text"] { white-space: pre; }
+  [id="01-question-caret"] {
+    display: inline-block;
+    width: 5px;
+    height: 52px;
+    margin-left: 4px;
+    background: #4FD27E;
+    vertical-align: middle;
+  }
+
+  /* reply bubble — the front wall (sharp, focal) */
+  [id="01-question-bubble"] {
+    position: absolute;
+    left: 115px;
+    top: 460px;
+    width: 1690px;
+    box-sizing: border-box;
+    padding: 40px 48px;
+    border-radius: 28px;
+    background: #1A1E27;
+    border: 1px solid #262A33;
+    clip-path: inset(0px 0px 100% 0px round 28px);
+    z-index: 3;
+  }
+  .q01-row {
+    height: 35px;
+    line-height: 35px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: "Geist", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #5A606B;
+  }
+</style>
+
+<div data-hf-id="hf-a6co" id="root" data-composition-id="01-question" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-m70z" id="01-question-ground" class="clip" data-start="0" data-duration="5" data-track-index="0"></div>
+
+  <div data-hf-id="hf-u0af" id="01-question-stage" class="clip" data-start="0" data-duration="5" data-track-index="1">
+    <div data-hf-id="hf-71fv" id="01-question-backwall" data-layout-allow-overlap=""></div>
+
+    <div data-hf-id="hf-22ei" id="01-question-stack">
+      <div data-hf-id="hf-ji24" id="01-question-kicker">01 · a question</div>
+      <div data-hf-id="hf-f6h8" id="01-question-burst"></div>
+      <div data-hf-id="hf-0hm6" id="01-question-input">
+        <div data-hf-id="hf-1uuc" id="01-question-line"><span data-hf-id="hf-pmwc" id="01-question-text"></span><span data-hf-id="hf-ere6" id="01-question-caret"></span></div>
+      </div>
+      <div data-hf-id="hf-shdk" id="01-question-bubble"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var FID = "01-question";
+    var DURATION = 5;
+    var $ = function (s) { return document.getElementById(FID + "-" + s); };
+
+    var stack = $("stack"), input = $("input"), burst = $("burst"), kicker = $("kicker");
+    var textEl = $("text"), caretEl = $("caret"), bubble = $("bubble"), backwall = $("backwall");
+
+    // ---------- the answer text (texture — glanced, not read) ----------
+    var PASSAGE =
+      "To find the eigenvectors of a matrix A, first compute the characteristic polynomial det(A - tI) = 0 and solve it for each eigenvalue t. " +
+      "For each eigenvalue, substitute back into (A - tI)v = 0 and row-reduce the augmented matrix to reduced row echelon form. " +
+      "The free variables parameterize the null space, which is the eigenspace associated with that eigenvalue. " +
+      "Note that eigenvectors are only defined up to a scalar multiple, so any nonzero multiple of an eigenvector is also an eigenvector. " +
+      "If the algebraic multiplicity of an eigenvalue exceeds its geometric multiplicity, the matrix is defective and cannot be diagonalized; " +
+      "in that case you may need generalized eigenvectors, obtained by solving (A - tI)^k v = 0 for increasing k until the chain terminates, " +
+      "which leads to the Jordan canonical form. For symmetric matrices the spectral theorem guarantees real eigenvalues and an orthonormal basis " +
+      "of eigenvectors, which can be found with Gram-Schmidt if any eigenspace has dimension greater than one. For a 2x2 matrix [[a, b], [c, d]] " +
+      "the characteristic polynomial is t^2 - (a + d)t + (ad - bc), so the eigenvalues follow from the quadratic formula, where the trace and " +
+      "determinant play the roles of the sum and product of the roots. In practice, numerical libraries use the QR algorithm with Hessenberg " +
+      "reduction and implicit shifts rather than computing the polynomial directly, because root-finding is ill-conditioned for large n. " +
+      "Power iteration converges to the dominant eigenvector at a rate set by the ratio of the two largest eigenvalues in magnitude, and inverse " +
+      "iteration with a shift isolates any other eigenvalue. In summary, the procedure consists of the following eleven steps, each of which " +
+      "must be carried out carefully, keeping track of signs and multiplicities, and verifying at the end that Av = tv holds for every pair. ";
+
+    // split into nowrap rows at a deterministic char budget
+    function rows(text, max, count) {
+      var words = (text + text + text).split(" ").filter(function (w) { return w.length; });
+      var out = [], cur = "";
+      for (var i = 0; i < words.length && out.length < count; i++) {
+        var next = cur ? cur + " " + words[i] : words[i];
+        if (next.length > max) { out.push(cur); cur = words[i]; } else { cur = next; }
+      }
+      return out;
+    }
+
+    var N_ROWS = 46, ROW_H = 35, PAD = 40;
+    rows(PASSAGE, 112, N_ROWS).forEach(function (r) {
+      var d = document.createElement("div");
+      d.className = "q01-row";
+      d.textContent = r;
+      bubble.appendChild(d);
+    });
+    var BUBBLE_H = PAD * 2 + N_ROWS * ROW_H + 2; // + borders
+    bubble.style.height = BUBBLE_H + "px";
+    backwall.textContent = PASSAGE.slice(380) + PASSAGE + PASSAGE.slice(0, 900);
+
+    // ---------- typing SEQUENCE (discrete-text-sequence) ----------
+    var PROMPT = "how do I find eigenvectors?";
+    var SEQUENCE = [{ t: 0, text: "" }];
+    var tk = 0.18;
+    for (var c = 1; c <= PROMPT.length; c++) {
+      var prev = PROMPT.charAt(c - 2);
+      tk += prev === " " ? 0.075 : 0.032 + (c % 3) * 0.006; // pause at word breaks, uneven keystrokes
+      SEQUENCE.push({ t: tk, text: PROMPT.slice(0, c) });
+    }
+    var T_TYPED = tk;          // ~1.25s
+    var T_SEND = 1.4;          // "when you ask an AI for help"
+    var CHANGE_TIMES = SEQUENCE.slice(1).map(function (e) { return e.t; });
+    var TYPING_GRACE = 0.18;
+    var BLINK_PERIOD = DURATION / 6; // whole number of cycles
+
+    function textAt(t) {
+      for (var i = SEQUENCE.length - 1; i >= 0; i--) if (t >= SEQUENCE[i].t) return SEQUENCE[i].text;
+      return "";
+    }
+
+    // ---------- reply stream TIMELINE (dynamic-content-sequencing, accelerating cadence) ----------
+    var T_OPEN = 1.5, OPEN_DUR = 0.12;
+    var STEADY = 8, STEADY_HOLD = 0.2, T_FIRST = T_OPEN + OPEN_DUR;
+    var T_FLOOD = 3.2, HOLD_START = 0.12, DECAY = 0.85, FLOOR = 0.03;
+    var ROW_T = [], cum = T_FIRST;
+    for (var r = 0; r < N_ROWS; r++) {
+      if (r === STEADY) cum = T_FLOOD;
+      ROW_T.push(cum);
+      cum += r < STEADY ? STEADY_HOLD : Math.max(FLOOR, HOLD_START * Math.pow(DECAY, r - STEADY));
+    }
+    function revealHeight(t) {
+      if (t < T_OPEN) return 0;
+      var open = Math.min(1, (t - T_OPEN) / OPEN_DUR);
+      var h = PAD * 2 * open;
+      for (var i = N_ROWS - 1; i >= 0; i--) {
+        if (t >= ROW_T[i]) {
+          var win = i + 1 < N_ROWS ? Math.min(0.1, ROW_T[i + 1] - ROW_T[i]) : 0.1;
+          var frac = Math.min(1, (t - ROW_T[i]) / win);
+          return h + ROW_H * (i + frac) + (i === N_ROWS - 1 && frac === 1 ? 2 : 0);
+        }
+      }
+      return h;
+    }
+
+    // ---------- per-frame render (pure function of time) ----------
+    var last = { text: null, caret: null, clip: null };
+    function render(t) {
+      var txt = textAt(t);
+      if (txt !== last.text) { textEl.textContent = txt; last.text = txt; }
+
+      var caretOn;
+      if (t >= T_SEND) caretOn = "0";
+      else {
+        var typing = CHANGE_TIMES.some(function (ct) { return ct <= t && t - ct < TYPING_GRACE; });
+        caretOn = typing ? "1" : (Math.sin((t / BLINK_PERIOD) * Math.PI * 2) > 0 ? "1" : "0");
+      }
+      if (caretOn !== last.caret) { caretEl.style.opacity = caretOn; last.caret = caretOn; }
+
+      var h = Math.min(BUBBLE_H, revealHeight(t));
+      var clip = "inset(0px 0px " + (BUBBLE_H - h).toFixed(1) + "px 0px round 28px)";
+      if (clip !== last.clip) { bubble.style.clipPath = clip; last.clip = clip; }
+    }
+
+    var tl = gsap.timeline({ paused: true });
+    var driver = { t: 0 };
+    render(0);
+    tl.to(driver, { t: DURATION, duration: DURATION, ease: "none", onUpdate: function () { render(driver.t); } }, 0);
+
+    // Scene 1 — ink field, input arrives (visible by 0.3s), prompt types
+    tl.fromTo(kicker, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.05);
+    tl.fromTo(input, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+
+    // Scene 2 — send press (press-release-spring), reply bubble opens + streams
+    tl.to(input, { scale: 0.965, borderColor: "#4FD27E", duration: 0.12, ease: "power1.in" }, T_SEND);
+    tl.to(input, { scale: 1, duration: 0.55, ease: "back.out(1.8)" }, T_SEND + 0.12);
+    tl.to(input, { borderColor: "#262A33", duration: 0.5, ease: "power2.out" }, T_SEND + 0.45);
+    tl.fromTo(burst, { opacity: 0, scale: 1 }, { opacity: 0.32, scale: 1.05, duration: 0.3, ease: "power2.out" }, T_SEND + 0.12);
+    tl.to(burst, { opacity: 0, duration: 0.45, ease: "power2.in" }, T_SEND + 0.42);
+    tl.to(textEl, { color: "#9AA0AA", duration: 0.4, ease: "power2.out" }, T_SEND + 0.2);
+
+    // Scene 3 — flood: stack scrolls up and buries the input, ending at peak velocity
+    // power2.in over 1.8s across 540px → exit velocity 2*540/1.8 = 600px/s (handoff)
+    tl.fromTo(stack, { y: 0 }, { y: -540, duration: DURATION - T_FLOOD, ease: "power2.in" }, T_FLOOD);
+    tl.to(input, { opacity: 0.3, duration: 1.2, ease: "power1.in" }, 3.4);
+
+    // back wall: blurred second plane fades in behind, slower parallax
+    tl.fromTo(backwall, { opacity: 0, "--dof": "2px" },
+      { opacity: 0.35, "--dof": "7px", duration: 0.9, ease: "power2.inOut" }, T_FLOOD);
+    tl.fromTo(backwall, { y: 0 }, { y: -324, duration: DURATION - T_FLOOD, ease: "power2.in", immediateRender: false }, T_FLOOD);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines[FID] = tl;
+  })();
+</script>
+</template>

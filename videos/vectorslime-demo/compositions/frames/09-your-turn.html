@@ -1,0 +1,198 @@
+<template id="09-your-turn-template">
+<div data-hf-id="hf-lsya" id="root" data-composition-id="09-your-turn" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  @font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: block; }
+  @font-face { font-family: "Geist"; src: url("assets/fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: block; }
+
+  #root {
+    position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden;
+    --ink: #12151C; --cream: #F4F1EA; --slime: #4FD27E; --muted: #9AA0AA;
+    font-family: "Geist", sans-serif;
+  }
+  #\30 9-your-turn-bg { position: absolute; inset: 0; background: #12151C; }
+  #\30 9-your-turn-stage { position: absolute; inset: 0; }
+
+  /* slime — 340px wide, centered, top at 130px (viewBox 96x94) */
+  #\30 9-your-turn-shadow {
+    position: absolute; left: 818px; top: 436px; width: 284px; height: 30px;
+    border-radius: 50%; background: rgba(0,0,0,0.5); filter: blur(9px);
+    transform-origin: 50% 50%;
+  }
+  #\30 9-your-turn-slime {
+    position: absolute; left: 790px; top: 130px; width: 340px; height: 333px;
+    transform-origin: 50% 97%;
+  }
+  #\30 9-your-turn-slime svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+  /* "Your turn" pill — the cam's real state */
+  #\30 9-your-turn-pillwrap { position: absolute; left: 0; right: 0; top: 512px; display: flex; justify-content: center; }
+  #\30 9-your-turn-pill {
+    display: inline-flex; align-items: center; height: 64px; padding: 0 34px;
+    border-radius: 999px; background: #4FD27E; color: #12151C;
+    font-family: "Geist", sans-serif; font-weight: 600; font-size: 31px; letter-spacing: -0.005em;
+    white-space: pre; transform-origin: 50% 50%;
+  }
+  #\30 9-your-turn-pill .ch { position: relative; display: inline-block; }
+  #\30 9-your-turn-pill .k {
+    position: absolute; right: -4px; top: 3px; width: 3px; height: 32px; background: #12151C; opacity: 0;
+  }
+
+  /* lockup */
+  #\30 9-your-turn-word {
+    position: absolute; left: 0; right: 0; top: 618px; text-align: center;
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 84px;
+    line-height: 1; letter-spacing: -0.03em; color: #F4F1EA;
+  }
+  #\30 9-your-turn-tag {
+    position: absolute; left: 0; right: 0; top: 738px; text-align: center;
+    font-family: "Geist", sans-serif; font-weight: 400; font-size: 34px; line-height: 1.3;
+    color: #9AA0AA;
+  }
+</style>
+
+<div data-hf-id="hf-nclx" id="09-your-turn-bg" class="clip" data-start="0" data-duration="6" data-track-index="0"></div>
+
+<div data-hf-id="hf-je7v" id="09-your-turn-stage" class="clip" data-start="0" data-duration="6" data-track-index="1">
+  <div data-hf-id="hf-i96x" id="09-your-turn-shadow"></div>
+  <div data-hf-id="hf-8h7f" id="09-your-turn-slime">
+    <svg data-hf-id="hf-dfyo" viewBox="16 20 96 94" xmlns="http://www.w3.org/2000/svg">
+      <defs data-hf-id="hf-mh0t">
+        <lineargradient data-hf-id="hf-ctn1" id="09-your-turn-body-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop data-hf-id="hf-fnfa" offset="0" stop-color="#b6f5c4" />
+          <stop data-hf-id="hf-3swd" offset="0.45" stop-color="#4fd27e" />
+          <stop data-hf-id="hf-255h" offset="1" stop-color="#22a456" />
+        </lineargradient>
+      </defs>
+      <g data-hf-id="hf-su7j" id="09-your-turn-body">
+        <path data-hf-id="hf-cbql" d="M20 104 C20 72 38 52 64 52 C90 52 108 72 108 104 C108 110 100 111 64 111 C28 111 20 110 20 104 Z" fill="url(#09-your-turn-body-grad)" stroke="rgba(14,84,44,0.55)" stroke-width="2" />
+        <ellipse data-hf-id="hf-pzzh" cx="38" cy="72" rx="9" ry="4" transform="rotate(-38 38 72)" fill="#fff" opacity="0.55" />
+        <circle data-hf-id="hf-1y28" cx="94" cy="96" r="2.4" fill="#fff" opacity="0.25" />
+        <circle data-hf-id="hf-x9cn" cx="88" cy="102" r="1.5" fill="#fff" opacity="0.25" />
+        <ellipse data-hf-id="hf-h312" cx="40" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity="0.85" />
+        <ellipse data-hf-id="hf-8jre" cx="88" cy="92" rx="5.5" ry="3" fill="#ff9eb6" opacity="0.85" />
+        <g data-hf-id="hf-o4gp" id="09-your-turn-eyes">
+          <ellipse data-hf-id="hf-ddxz" cx="52" cy="82" rx="5" ry="6.5" fill="#0f2418" />
+          <ellipse data-hf-id="hf-mw61" cx="76" cy="82" rx="5" ry="6.5" fill="#0f2418" />
+          <circle data-hf-id="hf-s1yc" cx="50.4" cy="79.2" r="1.9" fill="#fff" />
+          <circle data-hf-id="hf-7y5a" cx="74.4" cy="79.2" r="1.9" fill="#fff" />
+        </g>
+        <path data-hf-id="hf-7b0x" d="M57 93 Q64 99 71 93" fill="none" stroke="#5b1f2a" stroke-width="2.6" stroke-linecap="round" />
+      </g>
+      <g data-hf-id="hf-0wfy" id="09-your-turn-hat">
+        <path data-hf-id="hf-sbfc" d="M45 40 L83 40 L81 55 Q64 59 47 55 Z" fill="#1f2228" />
+        <path data-hf-id="hf-f4n5" d="M26 39 L64 28 L102 39 L64 50 Z" fill="#1f2228" />
+        <path data-hf-id="hf-6day" d="M26 36 L64 25 L102 36 L64 47 Z" fill="#363b46" stroke="#4b515c" stroke-width="1.2" />
+        <g data-hf-id="hf-7wyn" id="09-your-turn-tassel">
+          <path data-hf-id="hf-fkfg" d="M64 36 L98 37 Q101 44 100 52" fill="none" stroke="#f4c74f" stroke-width="2.2" stroke-linecap="round" />
+          <rect data-hf-id="hf-wp7v" x="96.5" y="50" width="7" height="12" rx="2.4" fill="#f4c74f" />
+        </g>
+        <circle data-hf-id="hf-qy86" cx="64" cy="36" r="2.6" fill="#f4c74f" />
+      </g>
+    </svg>
+  </div>
+
+  <div data-hf-id="hf-78gc" id="09-your-turn-pillwrap"><div data-hf-id="hf-yzgw" id="09-your-turn-pill"></div></div>
+  <div data-hf-id="hf-bz0i" id="09-your-turn-word">VectorSlime</div>
+  <div data-hf-id="hf-vy2c" id="09-your-turn-tag">a shared space to think.</div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById("09-your-turn-" + id); };
+  var tl = gsap.timeline({ paused: true });
+
+  var slime = $("slime"), shadow = $("shadow"), body = $("body"), eyes = $("eyes"),
+      hat = $("hat"), tassel = $("tassel"), pill = $("pill"), word = $("word"), tag = $("tag");
+
+  // Build the pill's typed characters (each carries its own trailing caret).
+  var PILL_TEXT = "Your turn";
+  var chars = [], carets = [];
+  for (var i = 0; i < PILL_TEXT.length; i++) {
+    var s = document.createElement("span");
+    s.className = "ch";
+    s.textContent = PILL_TEXT[i];
+    var k = document.createElement("span");
+    k.className = "k";
+    s.appendChild(k);
+    pill.appendChild(s);
+    chars.push(s); carets.push(k);
+  }
+
+  gsap.set([body, eyes, hat, tassel], { transformBox: "fill-box" });
+  gsap.set(body, { transformOrigin: "50% 100%" });
+  gsap.set(eyes, { transformOrigin: "50% 50%" });
+  gsap.set(hat, { transformOrigin: "50% 100%" });
+  gsap.set(tassel, { transformOrigin: "0% 0%" });
+
+  // ── Scene 1 (0.0–2.2s): persistent mark, eyes on camera, idle squash on "So"
+  tl.fromTo(slime, { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" }, 0);
+  tl.fromTo(shadow, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+
+  // "So" (0.07) — soft squash and recover
+  tl.fromTo(body, { scaleX: 1, scaleY: 1 }, { scaleX: 1.05, scaleY: 0.93, duration: 0.18, ease: "power2.out", immediateRender: false }, 0.07);
+  tl.to(shadow, { scaleX: 1.06, duration: 0.18, ease: "power2.out" }, 0.07);
+  tl.to(body, { scaleX: 1, scaleY: 1, duration: 0.5, ease: "power3.out" }, 0.25);
+  tl.to(shadow, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.25);
+
+  // "want" (0.72) — hat tips, tassel swings
+  tl.to(hat, { rotation: -4, duration: 0.25, ease: "power2.out" }, 0.72);
+  tl.to(tassel, { rotation: 8, duration: 0.25, ease: "power2.out" }, 0.72);
+  tl.to(hat, { rotation: 0, duration: 0.55, ease: "power3.out" }, 0.97);
+  tl.to(tassel, { rotation: 0, duration: 0.7, ease: "power3.out" }, 0.97);
+
+  // "think" (1.14) — body breathes in
+  tl.to(body, { scaleY: 1.03, scaleX: 0.985, duration: 0.4, ease: "sine.inOut" }, 1.14);
+  // "today" (1.62) — small lift, settle as the question ends
+  tl.to(slime, { y: -10, duration: 0.28, ease: "power2.out" }, 1.62);
+  tl.to(shadow, { scaleX: 0.9, opacity: 0.75, duration: 0.28, ease: "power2.out" }, 1.62);
+  tl.to(body, { scaleY: 1, scaleX: 1, duration: 0.4, ease: "power3.out" }, 1.62);
+  tl.to(slime, { y: 0, duration: 0.5, ease: "power3.out" }, 1.9);
+  tl.to(shadow, { scaleX: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 1.9);
+
+  // ── Scene 2 (2.2–3.0s): "Your turn" pill spring-pops; typed in with a caret; slime blinks
+  tl.fromTo(pill, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 2.2);
+  gsap.set(chars, { opacity: 0 });
+  var TYPE_AT = 2.3, PER_CHAR = 0.045;
+  for (var j = 0; j < chars.length; j++) {
+    var t = TYPE_AT + j * PER_CHAR;
+    tl.set(chars[j], { opacity: 1 }, t);
+    tl.set(carets[j], { opacity: 1 }, t);
+    if (j > 0) tl.set(carets[j - 1], { opacity: 0 }, t);
+  }
+  var last = carets[carets.length - 1];
+  var typedEnd = TYPE_AT + (chars.length - 1) * PER_CHAR;
+  // two deterministic caret blinks, then the caret leaves (the pill is the cam's settled state)
+  tl.set(last, { opacity: 0 }, typedEnd + 0.25);
+  tl.set(last, { opacity: 1 }, typedEnd + 0.5);
+  tl.set(last, { opacity: 0 }, typedEnd + 0.75);
+
+  // blink
+  tl.to(eyes, { scaleY: 0.1, duration: 0.07, ease: "power2.in" }, 2.45);
+  tl.to(eyes, { scaleY: 1, duration: 0.12, ease: "power2.out" }, 2.52);
+
+  // ── Scene 3 (3.0–6.0s): lockup rises in sequence, then holds still
+  var BASE_DURATION = 0.5, SEC_PER_CHAR = 0.03;
+  var LOCKUP = [ { el: word, text: "VectorSlime", rise: 28 }, { el: tag, text: "a shared space to think.", rise: 20 } ];
+  var cursor = 3.0;
+  LOCKUP.forEach(function (entry) {
+    entry.start = cursor;
+    cursor += BASE_DURATION + entry.text.length * SEC_PER_CHAR;
+  });
+  LOCKUP.forEach(function (entry) {
+    tl.fromTo(entry.el, { opacity: 0, y: entry.rise }, { opacity: 1, y: 0, duration: 0.65, ease: "power3.out" }, entry.start);
+  });
+
+  // one last blink as the tagline lands, then everything holds still to the end
+  tl.to(eyes, { scaleY: 0.1, duration: 0.07, ease: "power2.in" }, 4.45);
+  tl.to(eyes, { scaleY: 1, duration: 0.12, ease: "power2.out" }, 4.52);
+
+  // anchor the timeline to the full 6s duration (final hold, no exit)
+  tl.set({}, {}, 6);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["09-your-turn"] = tl;
+})();
+</script>
+</div>
+</template>
